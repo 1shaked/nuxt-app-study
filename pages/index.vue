@@ -1,40 +1,36 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        read-world-nuxt
-      </h1>
-      <h2 class="subtitle">
-        this is study nuxt for the resume
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <EventCard
+    v-for="(event, index) in events"
+    :key="index"
+    :event="event"
+    :data-index="index"></EventCard>
   </div>
 </template>
 
 <script>
+// import EventService from '@/services/EventService.js'
 import Logo from '~/components/Logo.vue'
-
+import EventCard from '~/components/EventCard.vue'
+import { mapState } from 'vuex'
 export default {
   components: {
-    Logo
-  }
+    Logo,
+    EventCard
+  },
+  async fetch({ store, error }) {
+    try {
+      await store.dispatch('events/fetchEvents')
+    } catch (error) {
+      error({
+        statusCode: 503,
+        message: 'Unable to get the data from the api pls refresh and try agine'
+      })
+    }
+  },
+  computed: mapState({
+    events: state => state.events.events
+  })
 }
 </script>
 
