@@ -34,7 +34,6 @@
   </div>
 </template>
 <script>
-import EventService from '@/services/EventService.js'
 import { mapState } from 'vuex'
 export default {
   head() {
