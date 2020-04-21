@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <div>
+      HELLO THERE
+    </div>
     <EventCard
     v-for="(event, index) in events"
     :key="index"
@@ -9,7 +12,6 @@
 </template>
 
 <script>
-// import EventService from '@/services/EventService.js'
 import Logo from '~/components/Logo.vue'
 import EventCard from '~/components/EventCard.vue'
 import { mapState } from 'vuex'
