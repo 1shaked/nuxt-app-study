@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-      HELLO THERE!
+      HELLO THERE! YOU
     </div>
     <EventCard
     v-for="(event, index) in events"
