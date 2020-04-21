@@ -2,6 +2,7 @@
   <div id="app">
     <nav-bar />
     <nuxt />
+    <div v-html="script"></div>
   </div>
 </template>
 
@@ -23,6 +24,11 @@ export default {
   },
   components: {
     NavBar
+  },
+  data() {
+    return {
+      script: "<script src='//code.tidio.co/lzxrnwmfmfosbg1oj68u0vv6rbgm7omq.js' async><\/script>"
+    }
   }
 }
 </script>
